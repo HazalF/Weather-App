@@ -1,0 +1,107 @@
+body {
+  padding: 2rem;
+  margin: 3rem;
+  margin-top: 3rem;
+  border-radius: 5rem;
+}
+
+.container {
+  display: block;
+  margin: 0 auto;
+}
+
+h1,
+p,
+.city {
+  text-align: center;
+}
+
+.form-control {
+  display: block;
+  border-radius: 5rem;
+  background-color: antiquewhite;
+  margin-top: 1rem;
+  text-align: justify;
+}
+
+.favoritecity {
+  margin-top: 1rem;
+  width: 15rem;
+  height: 8rem;
+  border-radius: 2rem;
+  background-color: antiquewhite;
+  font-family: "Josefin Sans", sans-serif;
+  display: flex start;
+}
+
+.temperature {
+  font-size: 2rem;
+  margin: 1rem;
+}
+
+/* h3 {
+  border: solid;
+  border-radius: 5px 25px;
+  padding: 5px 10px;
+  border-color: grey;
+  background-color: #add2c9;
+} */
+
+h1 {
+  font-size: 3.5rem;
+}
+h3 {
+  font-size: 3rem;
+}
+
+.addbutton {
+  border: none;
+  margin: 0;
+  padding: 0;
+  background-color: transparent;
+}
+.degree {
+  font-size: xx-large;
+}
+.nextdays {
+  display: block;
+  margin: 0 auto;
+  text-align: center;
+  margin-bottom: 3rem;
+}
+.nextdays,
+.p {
+  color: #488b8f;
+}
+h1,
+h3,
+h4,
+.coder {
+  color: #ba6476;
+}
+h4,
+h1,
+.p,
+.nextdays,
+.city {
+  font-family: "Josefin Sans", sans-serif;
+}
+.coder {
+  display: block;
+  margin: 0 auto;
+  text-align: right;
+  font-family: "Kanit", sans-serif;
+}
+
+.centerTable {
+  margin: 0rem auto;
+}
+
+.favIcon {
+  width: 2rem;
+  margin-bottom: 1rem;
+  margin-left: 1rem;
+}
+ul {
+  list-style-type: none;
+}
