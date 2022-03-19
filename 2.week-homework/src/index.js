@@ -4,20 +4,6 @@ searchForm.addEventListener("submit", changeCity);
 let currentLocationButton = document.querySelector("#current-location-button");
 currentLocationButton.addEventListener("click", getCurrentLocation);
 
-let now = new Date();
-let hours = now.getHours();
-if (hours < 10) {
-  hours = `0${hours}`;
-}
-let minutes = now.getMinutes();
-if (minutes < 10) {
-  minutes = `0${minutes}`;
-}
-
-let timeParagraph = document.querySelector("#time-paragraph");
-// alert(timeParagraph);
-timeParagraph.innerHTML = `${formatDay(now)} ${hours}: ${minutes}`;
-
 function formatDay(date) {
   let days = [
     "Sunday",
@@ -34,8 +20,24 @@ function formatDay(date) {
   return formatDay;
 }
 
-function setDefaultCity() {
+function setDefaultCityAndTime() {
+  setCurrentTime();
   updateCity("Zurich");
+}
+
+function setCurrentTime() {
+  let now = new Date();
+  let hours = now.getHours();
+  if (hours < 10) {
+    hours = `0${hours}`;
+  }
+  let minutes = now.getMinutes();
+  if (minutes < 10) {
+    minutes = `0${minutes}`;
+  }
+
+  let timeParagraph = document.querySelector("#time-paragraph");
+  timeParagraph.innerHTML = `${formatDay(now)} ${hours}: ${minutes}`;
 }
 
 function changeCity(event) {
