@@ -105,3 +105,35 @@ h1,
 ul {
   list-style-type: none;
 }
+
+.button-current-location {
+  align-items: center;
+  margin-top: 1.2rem;
+  background-color: rgba(240, 240, 240, 0.26);
+  border: 0.1rem solid #dfdfdf;
+  border-radius: 1.5rem;
+  box-sizing: border-box;
+  color: #000000;
+  cursor: pointer;
+  display: flex;
+  font-family: Inter, sans-serif;
+  justify-content: center;
+  text-decoration: none;
+  transition: all 0.2s;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  width: 100%;
+  min-width: 10rem;
+  padding: 0.8rem 1rem;
+}
+
+.button-current-location:active,
+.button-current-location:hover {
+  outline: 0;
+}
+
+.button-current-location:hover {
+  background-color: #ffffff;
+  border-color: rgba(0, 0, 0, 0.19);
+}
