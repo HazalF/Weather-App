@@ -1,6 +1,9 @@
 let searchForm = document.querySelector("#city-search-form");
 searchForm.addEventListener("submit", changeCity);
 
+let currentLocationButton = document.querySelector("#current-location-button");
+currentLocationButton.addEventListener("click", getCurrentLocation);
+
 let now = new Date();
 let hours = now.getHours();
 if (hours < 10) {
@@ -31,11 +34,19 @@ function formatDay(date) {
   return formatDay;
 }
 
+function setDefaultCity() {
+  updateCity("Zurich");
+}
+
 function changeCity(event) {
   event.preventDefault();
   let cityInput = document.querySelector("#city-search-input");
+  updateCity(cityInput.value);
+}
+
+function updateCity(cityName) {
   let apiKey = "6f4c150feca86de42ef85c28995713db";
-  let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${cityInput.value}&appid=${apiKey}&units=metric`;
+  let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${cityName}&appid=${apiKey}&units=metric`;
   axios.get(apiUrl).then(updateTemperature);
 }
 
@@ -88,5 +99,3 @@ function getCurrentLocation(event) {
   event.preventDefault();
   navigator.geolocation.getCurrentPosition(searchLocation);
 }
-let currentLocationButton = document.querySelector("#current-location-button");
-currentLocationButton.addEventListener("click", getCurrentLocation);
