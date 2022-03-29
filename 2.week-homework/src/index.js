@@ -92,27 +92,14 @@ function displayCelsiusTemperature(event) {
   celsiusLink.classList.add("active");
   fahrenheitLink.classList.remove("active");
   temperatureElement.innerHTML = Math.round(celsiusTemperature);
+
+  let celsiusTemperature = null;
+
+  let fahrenheitLink = document.querySelector("#fahrenheit-link");
+  fahrenheitLink = addEventListener("click", displayFahrenheitTemperature);
+  let celsiusLink = document.querySelector("#celsius-link");
+  celsiusLink.addEventListener("click", displayCelsiusTemperature);
 }
-let celsiusTemperature = null;
-
-let fahrenheitLink = document.querySelector("#fahrenheit-link");
-fahrenheitLink = addEventListener("click", displayFahrenheitTemperature);
-let celsiusLink = document.querySelector("#celsius-link");
-celsiusLink.addEventListener("click", displayCelsiusTemperature);
-// function convertToFahrenheit(event) {
-// event.preventDefault();
-// let temperatureElement = document.querySelector("#temperature");
-// temperatureElement.innerHTML = 66;
-// function convertToCelsius(event) {
-// event.preventDefault();
-// let temperatureElement = document.querySelector("#temperature");
-// temperatureElement.innerHTML = 19;
-// }
-// let fahrenheitLink = document.querySelector("#fahrenheit-link");
-// fahrenheitLink.addEventListener("click", convertToFahrenheit);
-
-// let celsiusLink = document.querySelector("#celsius-link");
-// celsiusLink.addEventListener("click", convertToCelsius);
 
 function searchLocation(position) {
   let apiKey = "6f4c150feca86de42ef85c28995713db";
