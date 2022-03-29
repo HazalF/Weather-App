@@ -49,10 +49,10 @@ function changeCity(event) {
 function updateCity(cityName) {
   let apiKey = "6f4c150feca86de42ef85c28995713db";
   let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${cityName}&appid=${apiKey}&units=metric`;
-  axios.get(apiUrl).then(updateTemperature);
+  axios.get(apiUrl).then(displayTemperature);
 }
 
-function updateTemperature(response) {
+function displayTemperature(response) {
   console.log(response);
   let temperatureElement = document.querySelector("#temperature");
   temperatureElement.innerHTML = Math.round(response.data.main.temp);
@@ -92,20 +92,21 @@ function displayCelsiusTemperature(event) {
   celsiusLink.classList.add("active");
   fahrenheitLink.classList.remove("active");
   temperatureElement.innerHTML = Math.round(celsiusTemperature);
-
-  let celsiusTemperature = null;
-
-  let fahrenheitLink = document.querySelector("#fahrenheit-link");
-  fahrenheitLink = addEventListener("click", displayFahrenheitTemperature);
-  let celsiusLink = document.querySelector("#celsius-link");
-  celsiusLink.addEventListener("click", displayCelsiusTemperature);
 }
+
+let celsiusTemperature = null;
+
+let fahrenheitLink = document.querySelector("#fahrenheit-link");
+fahrenheitLink = addEventListener("click", displayFahrenheitTemperature);
+
+let celsiusLink = document.querySelector("#celsius-link");
+celsiusLink.addEventListener("click", displayCelsiusTemperature);
 
 function searchLocation(position) {
   let apiKey = "6f4c150feca86de42ef85c28995713db";
   let apiUrl = `https://api.openweathermap.org/data/2.5/weather?lat=${position.coords.latitude}&lon=${position.coords.longitude}&appid=${apiKey}&units=metric`;
 
-  axios.get(apiUrl).then(updateTemperature);
+  axios.get(apiUrl).then(displayTemperature);
 }
 
 function getCurrentLocation(event) {

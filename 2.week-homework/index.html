@@ -20,128 +20,130 @@
 
     <body onload="setDefaultCityAndTime()">
       <div class="container">
-        <h1>Weather Forecast</h1>
+        <div class="weather-app-wrapper">
+          <h1>Weather Forecast</h1>
 
-        <div class="row justify-content-around">
-          <div class="col-3 favoritecity">
-            <br />
-            <h4>Favorite Cities</h4>
-            Istanbul <br />
-            Paris
-          </div>
+          <div class="row justify-content-around">
+            <div class="col-3 favoritecity">
+              <br />
+              <h4>Favorite Cities</h4>
+              Istanbul <br />
+              Paris
+            </div>
 
-          <div class="col-7">
-            <form id="city-search-form">
-              <div class="form-floating mb-3">
-                <input
-                  type="search"
-                  class="form-control"
-                  id="city-search-input"
-                  placeholder="Search city"
-                />
-                <label for="searchInput">Search city</label>
-              </div>
-            </form>
-          </div>
-          <div class="col-2">
-            <button
-              class="button-current-location"
-              id="current-location-button"
-            >
-              Current Location
-            </button>
-          </div>
-        </div>
-
-        <span class="city">
-          <div class="row justify-content-center">
-            <div class="col-12">
-              <table class="centerTable">
-                <tr>
-                  <td>
-                    <h3 id="city-name">Zurich</h3>
-                  </td>
-                  <td>
-                    <button class="addbutton" role="alert">
-                      <img
-                        src="src/images/small-star-icon-5.jpg"
-                        class="favIcon"
-                      />
-                    </button>
-                  </td>
-                </tr>
-              </table>
-
-              <div class="float-left">
-                <p id="time-paragraph"></p>
-                <span class="temperature" id="temperature">19</span>
-                <span class="units">
-                  <a href="#" id="celsius-link">°C</a> |
-                  <a href="#" id="fahrenheit-link">°F</a>
-                </span>
-              </div>
-
-              <strong>
-                <div class="information">
-                  <ul>
-                    <li><span id="description"></span></li>
-                    <li>
-                      <img src="" alt="" id="icons" />
-                    </li>
-                    <li>
-                      High:
-                      <span id="high"></span>°C
-                    </li>
-                    <li>
-                      Low:
-                      <span id="low"></span>°C
-                    </li>
-
-                    <li>
-                      Wind:
-                      <span id="wind"></span>km/h
-                    </li>
-                  </ul>
+            <div class="col-7">
+              <form id="city-search-form">
+                <div class="form-floating mb-3">
+                  <input
+                    type="search"
+                    class="form-control"
+                    id="city-search-input"
+                    placeholder="Search city"
+                  />
+                  <label for="searchInput">Search city</label>
                 </div>
-              </strong>
+              </form>
+            </div>
+            <div class="col-2">
+              <button
+                class="button-current-location"
+                id="current-location-button"
+              >
+                Current Location
+              </button>
             </div>
           </div>
-        </span>
-        <br />
-        <p><strong>"Don`t forget to take your sunscreen🧴"</strong></p>
-        <br />
 
-        <header class="nextdays">
-          <strong>
+          <span class="city">
             <div class="row justify-content-center">
-              <div class="col-1 border p-2 mt-1 rounded shadow">
-                Sun<br /><br />3°C <br /><br />
-                ☀️
-              </div>
-              <div class="col-1 border p-2 mt-1 rounded shadow">
-                Mon<br /><br />0°C<br /><br />
-                🌧️
-              </div>
-              <div class="col-1 border p-2 mt-1 rounded shadow">
-                Tue<br /><br />-3°C<br /><br />
-                ❄️
-              </div>
-              <div class="col-1 border p-2 mt-1 rounded shadow">
-                Wed<br /><br />0°C<br /><br />
-                ❄️
-              </div>
-              <div class="col-1 border p-2 mt-1 rounded shadow">
-                Thu<br /><br />6°C<br /><br />
-                ⛅
+              <div class="col-12">
+                <table class="centerTable">
+                  <tr>
+                    <td>
+                      <h3 id="city-name">Zurich</h3>
+                    </td>
+                    <td>
+                      <button class="addbutton" role="alert">
+                        <img
+                          src="src/images/small-star-icon-5.jpg"
+                          class="favIcon"
+                        />
+                      </button>
+                    </td>
+                  </tr>
+                </table>
+
+                <div class="float-left">
+                  <p id="time-paragraph"></p>
+                  <span class="temperature" id="temperature">19</span>
+                  <span class="units">
+                    <a href="#" id="celsius-link" class="active">°C</a> |
+                    <a href="#" id="fahrenheit-link">°F</a>
+                  </span>
+                </div>
+
+                <strong>
+                  <div class="information">
+                    <ul>
+                      <li><span id="description"></span></li>
+                      <li>
+                        <img src="" alt="" id="icons" />
+                      </li>
+                      <li>
+                        High:
+                        <span id="high"></span>°C
+                      </li>
+                      <li>
+                        Low:
+                        <span id="low"></span>°C
+                      </li>
+
+                      <li>
+                        Wind:
+                        <span id="wind"></span>km/h
+                      </li>
+                    </ul>
+                  </div>
+                </strong>
               </div>
             </div>
-          </strong>
-        </header>
+          </span>
+          <br />
+          <p><strong>"Don`t forget to take your sunscreen🧴"</strong></p>
+          <br />
+
+          <header class="nextdays">
+            <strong>
+              <div class="row justify-content-center">
+                <div class="col-1 border p-2 mt-1 rounded shadow">
+                  Sun<br /><br />3°C <br /><br />
+                  ☀️
+                </div>
+                <div class="col-1 border p-2 mt-1 rounded shadow">
+                  Mon<br /><br />0°C<br /><br />
+                  🌧️
+                </div>
+                <div class="col-1 border p-2 mt-1 rounded shadow">
+                  Tue<br /><br />-3°C<br /><br />
+                  ❄️
+                </div>
+                <div class="col-1 border p-2 mt-1 rounded shadow">
+                  Wed<br /><br />0°C<br /><br />
+                  ❄️
+                </div>
+                <div class="col-1 border p-2 mt-1 rounded shadow">
+                  Thu<br /><br />6°C<br /><br />
+                  ⛅
+                </div>
+              </div>
+            </strong>
+          </header>
+        </div>
+        <span class="coder">
+          <a href="https://github.com/HazalF/Weather-App">Open-source code</a>
+          by Hazal
+        </span>
       </div>
-      <span class="coder">
-        <a href="https://github.com/HazalF/Weather-App">Open-source code</a> by
-        Hazal
-      </span>
     </body>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
