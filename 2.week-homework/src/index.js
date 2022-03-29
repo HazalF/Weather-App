@@ -67,6 +67,8 @@ function displayTemperature(response) {
   );
   document.querySelector("#description").innerHTML =
     response.data.weather[0].main;
+
+  celsiusTemperature = response.data.main.temp;
   let cityElement = document.querySelector("#city-name");
   cityElement.innerHTML = response.data.name;
 
