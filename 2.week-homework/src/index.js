@@ -1,10 +1,15 @@
+// For openweathermap API call
+const weatherUnitCelsius = "metric";
+const weatherUnitFahrenheit = "imperial";
+
 let searchForm = document.querySelector("#city-search-form");
 searchForm.addEventListener("submit", changeCity);
 
 let currentLocationButton = document.querySelector("#current-location-button");
 currentLocationButton.addEventListener("click", getCurrentLocation);
 
-let celsiusTemperature = null;
+let currentTemperature = null;
+let activeUnitCelsius = true;
 
 function formatDay(date) {
   let days = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
@@ -42,7 +47,8 @@ function changeCity(event) {
 
 function updateCity(cityName) {
   let apiKey = "6f4c150feca86de42ef85c28995713db";
-  let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${cityName}&appid=${apiKey}&units=metric`;
+  let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${cityName}&appid=${apiKey}&units=`;
+  apiUrl += getWeatherUnit();
   axios.get(apiUrl).then(displayTemperature);
 }
 
@@ -55,7 +61,7 @@ function displayTemperature(response) {
   document.querySelector("#wind").innerHTML = Math.round(response.data.wind.speed);
   document.querySelector("#description").innerHTML = response.data.weather[0].main;
 
-  celsiusTemperature = response.data.main.temp;
+  currentTemperature = response.data.main.temp;
   let cityElement = document.querySelector("#city-name");
   cityElement.innerHTML = response.data.name;
 
@@ -65,20 +71,27 @@ function displayTemperature(response) {
 }
 
 function displayFahrenheit() {
-  let fahrenheitTemperature = celsiusTemperature * 1.8 + 32;
-  document.querySelector("#temperature").innerHTML = Math.round(fahrenheitTemperature);
-  changeActiveUnit(false);
+  if (activeUnitCelsius) {
+    currentTemperature = currentTemperature * 1.8 + 32;
+    document.querySelector("#temperature").innerHTML = Math.round(currentTemperature);
+    activeUnitCelsius = false;
+    changeActiveUnit();
+  }
 }
 
 function displayCelsius() {
-  document.querySelector("#temperature").innerHTML = Math.round(celsiusTemperature);
-  changeActiveUnit(true);
+  if (!activeUnitCelsius) {
+    currentTemperature = (currentTemperature - 32) / 1.8;
+    document.querySelector("#temperature").innerHTML = Math.round(currentTemperature);
+    activeUnitCelsius = true;
+    changeActiveUnit();
+  }
 }
 
 function searchLocation(position) {
   let apiKey = "6f4c150feca86de42ef85c28995713db";
-  let apiUrl = `https://api.openweathermap.org/data/2.5/weather?lat=${position.coords.latitude}&lon=${position.coords.longitude}&appid=${apiKey}&units=metric`;
-
+  let apiUrl = `https://api.openweathermap.org/data/2.5/weather?lat=${position.coords.latitude}&lon=${position.coords.longitude}&appid=${apiKey}&units=`;
+  apiUrl += getWeatherUnit();
   axios.get(apiUrl).then(displayTemperature);
 }
 
@@ -87,14 +100,22 @@ function getCurrentLocation(event) {
   navigator.geolocation.getCurrentPosition(searchLocation);
 }
 
-function changeActiveUnit(isCelsiusActive) {
+function changeActiveUnit() {
   let celsiusLink = document.querySelector("#celsius-link");
   let fahrenheitLink = document.querySelector("#fahrenheit-link");
-  if (isCelsiusActive) {
+  if (activeUnitCelsius) {
     celsiusLink.classList.add("active");
     fahrenheitLink.classList.remove("active");
   } else {
     celsiusLink.classList.remove("active");
     fahrenheitLink.classList.add("active");
+  }
+}
+
+function getWeatherUnit() {
+  if (activeUnitCelsius) {
+    return weatherUnitCelsius;
+  } else {
+    return weatherUnitFahrenheit;
   }
 }
