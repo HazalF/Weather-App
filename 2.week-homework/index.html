@@ -34,23 +34,13 @@
             <div class="col-7">
               <form id="city-search-form">
                 <div class="form-floating mb-3">
-                  <input
-                    type="search"
-                    class="form-control"
-                    id="city-search-input"
-                    placeholder="Search city"
-                  />
+                  <input type="search" class="form-control" id="city-search-input" placeholder="Search city" />
                   <label for="searchInput">Search city</label>
                 </div>
               </form>
             </div>
             <div class="col-2">
-              <button
-                class="button-current-location"
-                id="current-location-button"
-              >
-                Current Location
-              </button>
+              <button class="button-current-location" id="current-location-button">Current Location</button>
             </div>
           </div>
 
@@ -64,10 +54,7 @@
                     </td>
                     <td>
                       <button class="addbutton" role="alert">
-                        <img
-                          src="src/images/small-star-icon-5.jpg"
-                          class="favIcon"
-                        />
+                        <img src="src/images/small-star-icon-5.jpg" class="favIcon" />
                       </button>
                     </td>
                   </tr>
@@ -75,10 +62,11 @@
 
                 <div class="float-left">
                   <p id="time-paragraph"></p>
-                  <span class="temperature" id="temperature">19</span>
+                  <span class="temperature" id="temperature"></span>
                   <span class="units">
-                    <a href="#" id="celsius-link" class="active">°C</a> |
-                    <a href="#" id="fahrenheit-link">°F</a>
+                    <a href="#" id="celsius-link" class="active" onclick="displayCelsius()">°C</a>
+                    |
+                    <a href="#" id="fahrenheit-link" onclick="displayFahrenheit()">°F</a>
                   </span>
                 </div>
 

@@ -142,3 +142,8 @@ ul {
   background-color: #ffffff;
   border-color: rgba(0, 0, 0, 0.19);
 }
+
+.active {
+  font-weight: bolder;
+  font-size: x-large;
+}
