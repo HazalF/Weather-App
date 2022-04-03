@@ -11,7 +11,7 @@ body {
 }
 
 .background {
-  background: radial-gradient(circle at 10% 20%, rgb(99, 202, 236) 0%, rgb(162, 162, 236) 90.2%);
+  background: radial-gradient(circle at 10% 20%, rgb(107, 157, 171) 23.8%, rgb(92, 122, 158) 66%);
   background-size: cover;
 }
 
@@ -49,14 +49,6 @@ p,
   margin: 1rem;
 }
 
-/* h3 {
-  border: solid;
-  border-radius: 5px 25px;
-  padding: 5px 10px;
-  border-color: grey;
-  background-color: #add2c9;
-} */
-
 h1 {
   font-size: 3.5rem;
 }
@@ -80,14 +72,11 @@ h3 {
   margin-bottom: 3rem;
 }
 
-.p {
-  color: #488b8f;
-}
 h1,
 h3,
 h4,
 .coder {
-  color: #ba6476;
+  color: #975a5e;
 }
 h4,
 h1,
@@ -99,7 +88,7 @@ h1,
 .coder {
   display: block;
   margin-top: 10rem;
-  text-align: right;
+  text-align: center;
   font-family: "Josefin Sans", sans-serif;
 }
 
@@ -123,10 +112,11 @@ ul {
   border: 0.1rem solid #dfdfdf;
   border-radius: 1.5rem;
   box-sizing: border-box;
-  color: #000000;
+  color: #975a5e;
   cursor: pointer;
   display: flex;
   font-family: "Josefin Sans", sans-serif;
+  font-size: 1.2rem;
   justify-content: center;
   text-decoration: none;
   transition: all 0.2s;
@@ -154,7 +144,7 @@ ul {
 }
 
 .weather-forecast {
-  margin-top: 20px;
+  margin-top: 7rem;
   text-align: center;
   color: #000;
 }
@@ -165,7 +155,7 @@ ul {
 }
 
 .weather-forecast-date {
-  font-size: 1.2rem;
+  font-size: 1.4rem;
   font-weight: bold;
   font-family: "Josefin Sans", sans-serif;
   /* opacity: 0.5; */
@@ -173,14 +163,25 @@ ul {
 
 .weather-forecast-temperature-max {
   font-weight: bold;
+  font-size: 1.4rem;
   font-family: "Josefin Sans", sans-serif;
 }
 
 .weather-forecast-temperature-min {
   opacity: 0.5;
+  font-size: 1.4rem;
   font-family: "Josefin Sans", sans-serif;
 }
 
 .time-paragraph {
   font-family: "Josefin Sans", sans-serif;
+}
+.coder {
+  background-color: antiquewhite;
+  width: 464px;
+  padding: 2rem;
+  border-radius: 0.5rem;
+}
+.information {
+  font-size: 1.4rem;
 }
