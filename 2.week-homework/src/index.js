@@ -12,6 +12,7 @@ currentLocationButton.addEventListener("click", getCurrentLocation);
 let currentTemperature = null;
 let activeUnitCelsius = true;
 let currentCoordinates = null;
+let favoriteCities = [];
 
 function formatDay(date) {
   let days = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
@@ -158,4 +159,28 @@ function getForecast() {
   let apiUrl = `https://api.openweathermap.org/data/2.5/onecall?lat=${currentCoordinates.lat}&lon=${currentCoordinates.lon}&appid=${apiKey}&units=`;
   apiUrl += getWeatherUnit();
   axios.get(apiUrl).then(displayForecast);
+}
+
+function toggleFavoriteCity() {
+  let cityName = document.querySelector("#city-name").innerHTML;
+  console.log("Toggle fav city: " + cityName);
+  if (favoriteCities.includes(cityName)) {
+    favoriteCities.pop(cityName);
+  } else {
+    if (favoriteCities.length >= 3) {
+      alert("Sorry, you cannot add more than 3 cities to your favorites");
+    } else {
+      favoriteCities.push(cityName);
+    }
+  }
+  updateFavoriteCitiesSection();
+}
+
+function updateFavoriteCitiesSection() {
+  let favoriteCitiesHtml = "";
+  favoriteCities.forEach(function (cityName) {
+    favoriteCitiesHtml += `<a href="#"> ${cityName} </a> <br>`;
+  });
+
+  document.querySelector("#favorite-cities").innerHTML = favoriteCitiesHtml;
 }
