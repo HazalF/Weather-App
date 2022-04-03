@@ -11,9 +11,12 @@ body {
 }
 
 .background {
-  background-image: url("images/sky.jpg");
-  background-size: cover;
-  height: 100%;
+  /* background-image: url("images/sky.jpg"); */
+  /* background-size: cover; */
+  /* height: 100%;
+  background: linear-gradient(109.6deg, rgb(247, 202, 201) 20.6%, rgb(146, 168, 209) 85.9%);
+  background-size: 100%;
+  background-repeat: repeat; */
 }
 
 .container {
@@ -101,7 +104,7 @@ h1,
   display: block;
   margin-top: 10rem;
   text-align: right;
-  font-family: "Kanit", sans-serif;
+  font-family: "Josefin Sans", sans-serif;
 }
 
 .centerTable {
@@ -127,7 +130,7 @@ ul {
   color: #000000;
   cursor: pointer;
   display: flex;
-  font-family: Inter, sans-serif;
+  font-family: "Josefin Sans", sans-serif;
   justify-content: center;
   text-decoration: none;
   transition: all 0.2s;
@@ -168,13 +171,20 @@ ul {
 .weather-forecast-date {
   font-size: 1.2rem;
   font-weight: bold;
+  font-family: "Josefin Sans", sans-serif;
   /* opacity: 0.5; */
 }
 
 .weather-forecast-temperature-max {
   font-weight: bold;
+  font-family: "Josefin Sans", sans-serif;
 }
 
 .weather-forecast-temperature-min {
   opacity: 0.5;
+  font-family: "Josefin Sans", sans-serif;
+}
+
+.time-paragraph {
+  font-family: "Josefin Sans", sans-serif;
 }
