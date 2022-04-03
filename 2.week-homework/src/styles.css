@@ -10,6 +10,12 @@ body {
   border-radius: 5rem;
 }
 
+.background {
+  background-image: url("images/sky.jpg");
+  background-size: cover;
+  height: 100%;
+}
+
 .container {
   display: block;
   margin: 0 auto;
@@ -160,6 +166,15 @@ ul {
 }
 
 .weather-forecast-date {
-  font-size: 16px;
+  font-size: 1.2rem;
+  font-weight: bold;
+  /* opacity: 0.5; */
+}
+
+.weather-forecast-temperature-max {
+  font-weight: bold;
+}
+
+.weather-forecast-temperature-min {
   opacity: 0.5;
 }
