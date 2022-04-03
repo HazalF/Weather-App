@@ -11,12 +11,8 @@ body {
 }
 
 .background {
-  /* background-image: url("images/sky.jpg"); */
-  /* background-size: cover; */
-  /* height: 100%;
-  background: linear-gradient(109.6deg, rgb(247, 202, 201) 20.6%, rgb(146, 168, 209) 85.9%);
-  background-size: 100%;
-  background-repeat: repeat; */
+  background: radial-gradient(circle at 10% 20%, rgb(99, 202, 236) 0%, rgb(162, 162, 236) 90.2%);
+  background-size: cover;
 }
 
 .container {
@@ -148,7 +144,7 @@ ul {
 }
 
 .button-current-location:hover {
-  background-color: #ffffff;
+  background-color: antiquewhite;
   border-color: rgba(0, 0, 0, 0.19);
 }
 
