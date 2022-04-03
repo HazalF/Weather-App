@@ -19,15 +19,12 @@ let currentCoordinates = null;
 let favoriteCities = [];
 
 function writeFavCitiesToCookie() {
-  console.log("Writing fav cities to cookie: " + favoriteCities);
   document.cookie = favCitiesCookieName + "=" + favoriteCities.toString() + ";";
   console.log("Wrote cookies: " + document.cookie);
 }
 
 function initFavCitiesFromCookie() {
-  console.log("Reading cookies: " + document.cookie);
   let favCitiesCookieValue = getCookie(favCitiesCookieName);
-  console.log("Fav cities cookie: " + favCitiesCookieValue);
   if (favCitiesCookieValue !== undefined) {
     favoriteCities = favCitiesCookieValue.split(",");
     updateFavoriteCitiesSection();
