@@ -20,7 +20,6 @@ let favoriteCities = [];
 
 function writeFavCitiesToCookie() {
   document.cookie = favCitiesCookieName + "=" + favoriteCities.toString() + ";";
-  console.log("Wrote cookies: " + document.cookie);
 }
 
 function initFavCitiesFromCookie() {
