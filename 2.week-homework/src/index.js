@@ -5,6 +5,7 @@ const weatherUnitFahrenheit = "imperial";
 const defaultCity = "Zurich";
 const favIconName = "src/images/star-filled.png";
 const noFavIconName = "src/images/star-nofill.png";
+const favCitiesCookieName = "favCities";
 
 let searchForm = document.querySelector("#city-search-form");
 searchForm.addEventListener("submit", changeCity);
@@ -17,6 +18,28 @@ let activeUnitCelsius = true;
 let currentCoordinates = null;
 let favoriteCities = [];
 
+function writeFavCitiesToCookie() {
+  console.log("Writing fav cities to cookie: " + favoriteCities);
+  document.cookie = favCitiesCookieName + "=" + favoriteCities.toString() + ";";
+  console.log("Wrote cookies: " + document.cookie);
+}
+
+function initFavCitiesFromCookie() {
+  console.log("Reading cookies: " + document.cookie);
+  let favCitiesCookieValue = getCookie(favCitiesCookieName);
+  console.log("Fav cities cookie: " + favCitiesCookieValue);
+  if (favCitiesCookieValue !== undefined) {
+    favoriteCities = favCitiesCookieValue.split(",");
+    updateFavoriteCitiesSection();
+  }
+}
+
+function getCookie(name) {
+  const value = `; ${document.cookie}`;
+  const parts = value.split(`; ${name}=`);
+  if (parts.length === 2) return parts.pop().split(";").shift();
+}
+
 function formatDay(date) {
   let days = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
 
@@ -27,6 +50,7 @@ function formatDay(date) {
 
 function setDefaultCityAndTime() {
   setCurrentTime();
+  initFavCitiesFromCookie();
   updateCity(defaultCity);
 }
 
@@ -180,6 +204,7 @@ function toggleFavoriteCity() {
     }
   }
   updateFavIcon(cityName);
+  writeFavCitiesToCookie();
   updateFavoriteCitiesSection();
 }
 
