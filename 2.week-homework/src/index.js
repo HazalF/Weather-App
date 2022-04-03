@@ -2,6 +2,7 @@
 const apiKey = "6f4c150feca86de42ef85c28995713db";
 const weatherUnitCelsius = "metric";
 const weatherUnitFahrenheit = "imperial";
+const defaultCity = "Zurich";
 
 let searchForm = document.querySelector("#city-search-form");
 searchForm.addEventListener("submit", changeCity);
@@ -24,7 +25,7 @@ function formatDay(date) {
 
 function setDefaultCityAndTime() {
   setCurrentTime();
-  updateCity("Zurich");
+  updateCity(defaultCity);
 }
 
 function setCurrentTime() {
@@ -179,7 +180,7 @@ function toggleFavoriteCity() {
 function updateFavoriteCitiesSection() {
   let favoriteCitiesHtml = "";
   favoriteCities.forEach(function (cityName) {
-    favoriteCitiesHtml += `<a href="#"> ${cityName} </a> <br>`;
+    favoriteCitiesHtml += `<a href="#" onclick="updateCity('${cityName}');"> ${cityName} </a> <br>`;
   });
 
   document.querySelector("#favorite-cities").innerHTML = favoriteCitiesHtml;
