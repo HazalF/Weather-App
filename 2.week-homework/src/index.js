@@ -49,6 +49,7 @@ function changeCity(event) {
   event.preventDefault();
   let cityInput = document.querySelector("#city-search-input");
   updateCity(cityInput.value);
+  cityInput.value = "";
 }
 
 function updateCity(cityName) {
@@ -169,7 +170,8 @@ function getForecast() {
 function toggleFavoriteCity() {
   let cityName = document.querySelector("#city-name").innerHTML;
   if (favoriteCities.includes(cityName)) {
-    favoriteCities.pop(cityName);
+    const index = favoriteCities.indexOf(cityName);
+    favoriteCities.splice(index, 1);
   } else {
     if (favoriteCities.length >= 3) {
       alert("Sorry, you cannot add more than 3 cities to your favorites");
