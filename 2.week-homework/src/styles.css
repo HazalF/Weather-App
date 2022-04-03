@@ -90,9 +90,10 @@ h1,
 .city {
   font-family: "Josefin Sans", sans-serif;
 }
+
 .coder {
   display: block;
-  margin: 0 auto;
+  margin-top: 10rem;
   text-align: right;
   font-family: "Kanit", sans-serif;
 }
@@ -151,6 +152,11 @@ ul {
   margin-top: 20px;
   text-align: center;
   color: #000;
+}
+
+.forecast-section {
+  margin: auto;
+  width: 20%;
 }
 
 .weather-forecast-date {

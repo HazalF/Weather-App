@@ -134,7 +134,7 @@ function displayForecast(response) {
       forecastHTML =
         forecastHTML +
         `
-      <div class="col-1 border p-2 mt-1 rounded shadow">
+      <div class="border p-2 mt-1 rounded shadow forecast-section">
         <div class="weather-forecast-date">${formatDay(new Date(forecastDay.dt * 1000))}</div>
         <img
           src="http://openweathermap.org/img/wn/${forecastDay.weather[0].icon}@2x.png"
