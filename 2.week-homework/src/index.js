@@ -3,6 +3,8 @@ const apiKey = "6f4c150feca86de42ef85c28995713db";
 const weatherUnitCelsius = "metric";
 const weatherUnitFahrenheit = "imperial";
 const defaultCity = "Zurich";
+const favIconName = "src/images/star-filled.png";
+const noFavIconName = "src/images/star-nofill.png";
 
 let searchForm = document.querySelector("#city-search-form");
 searchForm.addEventListener("submit", changeCity);
@@ -65,7 +67,9 @@ function displayTemperature(response) {
 
   currentTemperature = response.data.main.temp;
   let cityElement = document.querySelector("#city-name");
-  cityElement.innerHTML = response.data.name;
+  let cityName = response.data.name;
+  cityElement.innerHTML = cityName;
+  updateFavIcon(cityName);
 
   let iconsElement = document.querySelector("#icons");
 
@@ -164,7 +168,6 @@ function getForecast() {
 
 function toggleFavoriteCity() {
   let cityName = document.querySelector("#city-name").innerHTML;
-  console.log("Toggle fav city: " + cityName);
   if (favoriteCities.includes(cityName)) {
     favoriteCities.pop(cityName);
   } else {
@@ -174,6 +177,7 @@ function toggleFavoriteCity() {
       favoriteCities.push(cityName);
     }
   }
+  updateFavIcon(cityName);
   updateFavoriteCitiesSection();
 }
 
@@ -184,4 +188,13 @@ function updateFavoriteCitiesSection() {
   });
 
   document.querySelector("#favorite-cities").innerHTML = favoriteCitiesHtml;
+}
+
+function updateFavIcon(cityName) {
+  let favIconElement = document.querySelector("#fav-icon");
+  if (favoriteCities.includes(cityName)) {
+    favIconElement.src = favIconName;
+  } else {
+    favIconElement.src = noFavIconName;
+  }
 }
